@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool runRightBool = false;
+
         Debug.Log(Input.GetAxisRaw("Horizontal"));
 
         Rigidbody2D player = GetComponent<Rigidbody2D>();
@@ -17,12 +19,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             transform.position += new Vector3(1, 0) * speed * Time.deltaTime;
-            animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+            runRightBool = true;
         }
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             transform.position += new Vector3(-1, 0) * speed * Time.deltaTime;
         }
+
+        animator.SetBool("runRightBool", runRightBool);
     }
 
     void FixedUpdate()
