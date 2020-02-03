@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         //sets the animation bools as true or false depending if the A or D keys are being held down
         animator.SetBool("runRightBool", runRightBool);
         animator.SetBool("runLeftBool", runLeftBool);
+        animator.SetBool("grounded", isOnFloor);
     }
 
     void Jump()
